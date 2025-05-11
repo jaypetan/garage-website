@@ -166,7 +166,7 @@ const Home = () => {
               )}
             </section>
             <section className={styles["section-wrapper"]}>
-              <Typography variant={"heading"}>OUR EVENTS</Typography>
+              <Typography variant={"heading"}>FLAGSHIP EVENTS</Typography>
               {eventData ? (
                 <Grid>
                   {eventData.map((card, index) => (
@@ -203,7 +203,6 @@ const Home = () => {
                 </div>
               )}
             </section>
-
             <section className={styles["section-wrapper"]}>
               <Typography variant={"heading"}>Behind The Rollerdoor</Typography>
               <Typography variant="body">{data.newsletter}</Typography>

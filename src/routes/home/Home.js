@@ -25,6 +25,9 @@ const Home = () => {
   const { data: eventData } = useFetch({
     url: API_DOMAIN + "?type=events&fields=name,coverPic",
   });
+  const { data: pastEventData } = useFetch({
+    url: API_DOMAIN + "?type=pastEvents&fields=name,coverPic",
+  });
   const { data: newsletterData } = useFetch({
     url: API_DOMAIN + "?type=newsletter",
   });
@@ -167,6 +170,25 @@ const Home = () => {
               {eventData ? (
                 <Grid>
                   {eventData.map((card, index) => (
+                    <Card
+                      key={card.name}
+                      image={card.coverPic}
+                      to={"events/" + index}
+                      bottomText={card.name}
+                    />
+                  ))}
+                </Grid>
+              ) : (
+                <div className={styles["loading-wrapper"]}>
+                  <LoadingSpinner />
+                </div>
+              )}
+            </section>
+            <section className={styles["section-wrapper"]}>
+              <Typography variant={"heading"}>PAST EVENTS</Typography>
+              {pastEventData ? (
+                <Grid>
+                  {pastEventData.map((card, index) => (
                     <Card
                       key={card.name}
                       image={card.coverPic}
